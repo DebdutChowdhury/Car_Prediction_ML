@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Beautiful Form</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<form action="{{url_for('predict')}}" method="post">
+        <h2>Car Price Predictive Analysis</h2>
+        <label >Year:</label>
+		<input type="number" id="first" name="Year" required>
+
+		<label >What is the showroom price? (In lakh):</label>
+		<input type="text" id="second" name="Present_Price" required>
+
+		<label >How Many Kilometers Drived?</label>
+		<input type="text" id="third" name="Kms_Driven" required>
+
+		<label >How much owners previously had the car(0 or 1 or 3) ?</label>
+		<input type="number" id="fourth" name="Owner" rows="5" required/>
+
+        <label >What Is the Fuel type?</label>
+        <select name="Fuel_Type_Petrol" id="fuel" required="required">
+            <option value="Petrol">Petrol</option>
+            <option value="Diesel">Diesel</option>
+            <option value="Diesel">CNG</option>
+        </select>
+
+        <label >Are you A Dealer or Individual</label>
+        <select name="Seller_Type_Individual" id="resea" required="required">
+            <option value="Dealer">Dealer</option>
+            <option value="Individual">Individual</option>
+        </select>
+
+       <label >What Is the Fuel type?</label>
+       <select name="Transmission_Mannual" id="research" required="required">
+            <option value="Mannual">Manual Car</option>
+            <option value="Automatic">Automatic Car</option>
+        </select>
+
+		<input id="sub" type="submit" value="Calculate the Selling Price">
+        <br><br><h3>{{prediction_text}}</h3>
+	</form>
+    
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+form {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    padding: 20px;
+    width: 500px;
+    margin: auto;
+}
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+input[type=text], input[type=number], select {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    resize: vertical;
+}
+input[type=submit] {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+input[type=submit]:hover {
+    background-color: #3e8e41;
+}
+    </style>
+</body>
+</html>
